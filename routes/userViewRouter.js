@@ -20,7 +20,7 @@ userRouter.route('/logout')
 userRouter.route('/dashboard')
 .get(ensureAuthenticated, userController.dashboard)
 
-// userRouter.route('/delete/:userId')
-// .get(ensureAuthenticated, userController.deleteUser)
+userRouter.route('/delete/:userId')
+.get(ensureAuthenticated, userController.deleteUser)
 
 module.exports = userRouter;
