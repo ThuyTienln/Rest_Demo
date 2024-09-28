@@ -1,23 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const commentSchemar = new Schema({
-    rating : {
-        type : Number,
-        min : 1,
-        max : 5,
-        required : true
-    },
-    comment : {
-        type : String,
-        required : true
-    },
-    author : {
-        type : String,
-        required : true
-    }
-})
-
 const blackpinkSchema = new Schema({
     name : {
         type : String,
@@ -36,7 +19,11 @@ const blackpinkSchema = new Schema({
         type : String,
         required : true
     },
-    comments: [commentSchemar]
+    // comments: [commentSchemar]
+    comments : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Comment'
+    }
 }, {timestamps: true});
 
 var Blackpink = mongoose.model('blackpink', blackpinkSchema);
