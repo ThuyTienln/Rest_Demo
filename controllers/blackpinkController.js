@@ -157,6 +157,7 @@ class blackpinkController {
     //exercise 13.1
     getBlackpink(req,res) {
         Blackpink.find({})
+        .populate('commentSchemar')
         .then((blackpinks) => {
             res.render('index', {
                 title : 'List of Blackpink',
